@@ -1,0 +1,39 @@
+package br.com.queridoautomovel.model.domain;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+/**
+ * 
+ * QueridoAutomovel
+ * 
+ * @author Sérgio Junior - sergio.storinojr@gmail.com 
+ * 08/12/2015
+ *
+ */
+@Entity
+@Table(name = "enderecoClienteFisica")
+public class EnderecoClienteFisica extends Endereco implements Serializable {
+
+	@ManyToOne
+	@JoinColumn(name = "clienteFisica_id", foreignKey = @ForeignKey(name = "FK_CLIENTEFISICA_ID"))
+	private ClienteFisica clienteFisica;
+
+	public EnderecoClienteFisica() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public final ClienteFisica getClienteFisica() {
+		return clienteFisica;
+	}
+
+	public void setClienteFisica(ClienteFisica clienteFisica) {
+		this.clienteFisica = clienteFisica;
+	}
+
+}
